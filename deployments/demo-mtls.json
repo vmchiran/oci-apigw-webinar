@@ -3,6 +3,14 @@
     "rateLimiting": {
       "rateInRequestsPerSecond": 1,
       "rateKey": "TOTAL"
+    },
+    "mutualTls": {
+      "isVerifiedCertificateRequired": true,
+      "allowedSans": [
+        "client.a.apigw",
+        "client.b.apigw",
+        "client.c.apigw"
+      ]
     }
   },
   "routes": [
@@ -22,16 +30,6 @@
         "GET"
       ],
       "path": "/version"
-    },
-    {
-      "backend": {
-        "type": "HTTP_BACKEND",
-        "url": "https://www.anapioficeandfire.com/api/characters/${request.path[characterId]}"
-      },
-      "methods": [
-        "GET"
-      ],
-      "path": "/characters/{characterId}"
     }
   ]
 }
