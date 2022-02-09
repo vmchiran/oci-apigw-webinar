@@ -40,16 +40,21 @@
                 },
                 "examples": {
                   "Videos": {
-                    "summary": "List of videos example",
                     "value": [
                       {
                         "id": 1,
+                        "title": "API Gateway Overview",
+                        "url": "https://youtu.be/10U6kTh_0Lc",
+                        "views": 1000
+                      },
+                      {
+                        "id": 2,
                         "title": "Intro to Oracle's API Gateway",
                         "url": "https://youtu.be/Ix2RIh5mkM8",
                         "views": 1000
                       },
                       {
-                        "id": 2,
+                        "id": 3,
                         "title": "Hands on - how to create an API gateway",
                         "url": "https://youtu.be/hES55nIQH0Y",
                         "views": 1000
@@ -76,7 +81,7 @@
     "/videos/{videoId}": {
       "get": {
         "summary": "Fetch a video by id",
-        "operationId": "listVideo",
+        "operationId": "listVideoById",
         "tags": [
           "videos"
         ],
@@ -93,19 +98,18 @@
         ],
         "responses": {
           "200": {
-            "description": "A video",
+            "description": "A video by id",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Video"
                 },
                 "examples": {
-                  "Video": {
-                    "summary": "A video example",
+                  "Video - API Gateway Overview": {
                     "value": {
                       "id": 1,
-                      "title": "Intro to Oracle's API Gateway",
-                      "url": "https://youtu.be/Ix2RIh5mkM8",
+                      "title": "API Gateway Overview",
+                      "url": "https://youtu.be/10U6kTh_0Lc",
                       "views": 1000
                     }
                   }
@@ -131,10 +135,6 @@
     "schemas": {
       "Video": {
         "type": "object",
-        "required": [
-          "id",
-          "title"
-        ],
         "properties": {
           "id": {
             "type": "integer"
@@ -143,12 +143,17 @@
             "type": "string"
           },
           "url": {
-            "type": "string"
+            "type": "string",
+            "format": "uri"
           },
           "views": {
             "type": "integer"
           }
-        }
+        },
+        "required": [
+          "id",
+          "title"
+        ]
       },
       "Videos": {
         "type": "array",
@@ -158,19 +163,20 @@
       },
       "Error": {
         "type": "object",
-        "required": [
-          "code",
-          "message"
-        ],
         "properties": {
           "code": {
             "type": "integer",
-            "format": "int32"
+            "minimum": 1000,
+            "maximum": 9999
           },
           "message": {
             "type": "string"
           }
-        }
+        },
+        "required": [
+          "code",
+          "message"
+        ]
       }
     },
     "securitySchemes": {
