@@ -32,7 +32,7 @@
         ],
         "responses": {
           "200": {
-            "description": "List of videos",
+            "description": "200 - List of videos",
             "content": {
               "application/json": {
                 "schema": {
@@ -66,7 +66,7 @@
             }
           },
           "default": {
-            "description": "unexpected error",
+            "description": "500 default - unexpected error",
             "content": {
               "application/json": {
                 "schema": {
@@ -98,7 +98,7 @@
         ],
         "responses": {
           "200": {
-            "description": "A video by id",
+            "description": "200 - A video by id",
             "content": {
               "application/json": {
                 "schema": {
@@ -117,8 +117,26 @@
               }
             }
           },
+          "404": {
+            "description": "404 - Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                },
+                "examples": {
+                  "Video not found": {
+                    "value": {
+                      "code": 1004,
+                      "message": "Video not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
           "default": {
-            "description": "unexpected error",
+            "description": "500 default - unexpected error",
             "content": {
               "application/json": {
                 "schema": {
