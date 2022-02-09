@@ -5,3 +5,7 @@ API Specifications included in this repo are based on the OpenAPI-Specification 
 * To learn more about OCI API Gateway and API design, visit the [Oracle Cloud Native API Management](https://www.oracle.com/cloud-native/api-management/) site.
 * [OCI API Gateway Quick Start](https://docs.oracle.com/en-us/iaas/Content/APIGateway/Tasks/apigatewayquickstartsetupcreatedeploy.htm#apigatewayquickstartsetupcreatedeploy)
 * [OCI API Gateway Documentation](https://docs.cloud.oracle.com/en-us/iaas/Content/APIGateway/Concepts/apigatewayoverview.htm)
+* YouTube videos
+	* [API Gateway Overview](https://youtu.be/10U6kTh_0Lc)
+	* [Intro to Oracle's API Gateway](https://youtu.be/Ix2RIh5mkM8)
+	* [Hands on - how to create an API gateway](https://youtu.be/hES55nIQH0)
